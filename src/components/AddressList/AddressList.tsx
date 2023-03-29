@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, {
+  FunctionComponent,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 import { getAddresses } from '../../api/addresses';
 import { Address } from '../../types/address';
 import ErrorMessage from '../ErrorMessage';
@@ -33,16 +38,19 @@ const AddressList: FunctionComponent<Props> = ({ onClick }) => {
     handleGetAddresses();
   }, []);
 
-  const handleListItemClick = (address: string) => {
-    setActiveAddress(address);
-    const currentAddress = addressesData.find(
-      (item) => item.address === address,
-    );
+  const handleListItemClick = useCallback(
+    (address: string) => {
+      setActiveAddress(address);
+      const currentAddress = addressesData.find(
+        (item) => item.address === address,
+      );
 
-    if (currentAddress) {
-      onClick(currentAddress);
-    }
-  };
+      if (currentAddress) {
+        onClick(currentAddress);
+      }
+    },
+    [addressesData],
+  );
 
   if (isLoading) {
     return <Loader />;

@@ -29,4 +29,4 @@ const ListItem: FunctionComponent<Props> = ({
   );
 };
 
-export default ListItem;
+export default React.memo(ListItem);
