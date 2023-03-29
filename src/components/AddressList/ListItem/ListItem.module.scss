@@ -1,0 +1,47 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #3a3d3e;
+  color: #969c9f;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    background-color: #404749;
+  }
+
+  &Title {
+    font-size: large;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  &List {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+
+    li {
+      background-color: #282c2d;
+      padding: 5px;
+      font-size: smaller;
+    }
+  }
+}
+
+.active {
+  background-color: #404749;
+}

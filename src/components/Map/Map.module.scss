@@ -1,0 +1,9 @@
+.root {
+  height: 471px;
+  width: 100%;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    flex: unset;
+  }
+}
